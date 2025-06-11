@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 221.2 83.2% 53.3%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 221.2 83.2% 53.3%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 217.2 91.2% 59.8%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 224.3 76.5% 48%;
+}
+
+body {
+  @apply bg-white text-gray-800;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Mejoras de contraste y legibilidad */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-gray-900 font-bold;
+}
+
+p,
+li,
+span {
+  @apply text-gray-700;
+}
+
+a {
+  @apply text-blue-600 hover:text-blue-800;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Estilos personalizados para el demo */
+.auth-card {
+  @apply bg-white rounded-lg shadow-lg p-6 border-l-4 transition-all duration-200 hover:shadow-xl;
+}
+
+.auth-card.jwt {
+  @apply border-blue-500;
+}
+
+.auth-card.session {
+  @apply border-green-500;
+}
+
+.auth-card.oauth {
+  @apply border-purple-500;
+}
+
+/* Animaciones suaves */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilos para tokens JWT */
+.token-display {
+  @apply bg-gray-100 p-3 rounded text-xs break-all font-mono border text-gray-800;
+  word-break: break-all;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Estilos para botones de OAuth */
+.oauth-button {
+  @apply w-full flex items-center justify-center space-x-2 p-3 rounded font-medium transition-all duration-200 transform hover:scale-105;
+}
+
+/* Estilos para formularios */
+.form-input {
+  @apply w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-gray-700 mb-2;
+}
+
+/* Estilos para alertas/notificaciones */
+.alert {
+  @apply p-4 rounded-lg border;
+}
+
+.alert.success {
+  @apply bg-green-50 border-green-200 text-green-800;
+}
+
+.alert.error {
+  @apply bg-red-50 border-red-200 text-red-800;
+}
+
+.alert.info {
+  @apply bg-blue-50 border-blue-200 text-blue-800;
+}
+
+.alert.warning {
+  @apply bg-yellow-50 border-yellow-200 text-yellow-800;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    @apply px-4;
+  }
+
+  .oauth-button {
+    @apply text-sm p-2;
+  }
+
+  .token-display {
+    @apply text-xs;
+  }
+}
+
+/* Loading spinner */
+.spinner {
+  @apply inline-block w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin;
+}
+
+/* Mejoras de contraste para botones */
+button,
+.btn {
+  @apply font-medium;
+}
+
+.btn-primary {
+  @apply bg-blue-600 text-white hover:bg-blue-700;
+}
+
+.btn-success {
+  @apply bg-green-600 text-white hover:bg-green-700;
+}
+
+.btn-danger {
+  @apply bg-red-600 text-white hover:bg-red-700;
+}
+
+/* Mejoras para la navegación */
+nav {
+  @apply bg-gray-800 text-white;
+}
+
+nav a {
+  @apply text-white hover:text-gray-300;
+}
+
+/* Mejoras para cards */
+.card {
+  @apply bg-white rounded-lg shadow border border-gray-200;
+}
+
+.card-header {
+  @apply font-bold text-lg p-4 border-b border-gray-200;
+}
+
+.card-body {
+  @apply p-4;
+}
+
+/* Mejoras para listas */
+ul li,
+ol li {
+  @apply text-gray-700 my-1;
+}
+
+/* Mejoras para código */
+code {
+  @apply bg-gray-100 text-gray-800 px-1 py-0.5 rounded text-sm font-mono;
+}
+
+pre {
+  @apply bg-gray-800 text-gray-100 p-4 rounded-lg overflow-x-auto;
+}
